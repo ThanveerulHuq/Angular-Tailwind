@@ -15,17 +15,17 @@ export class AppComponent {
     let totalAmount: number = 0;
     let currUnits = this.units;
     totalAmount += this.getAmount(currUnits - 1000, 11);
-    currUnits -= currUnits - 1000;
+    currUnits -= currUnits > 1000 ? currUnits - 1000 : 0;
     totalAmount += this.getAmount(currUnits - 800, 10);
-    currUnits -= currUnits - 800;
+    currUnits -= currUnits > 800 ? currUnits - 800 : 0;
     totalAmount += this.getAmount(currUnits - 600, 9);
-    currUnits -= currUnits - 600;
+    currUnits -= currUnits > 600 ? currUnits - 600 : 0;
     totalAmount += this.getAmount(currUnits - 500, 8);
-    currUnits -= currUnits - 500;
+    currUnits -= currUnits > 500 ? currUnits - 500 : 0;
     totalAmount += this.getAmount(currUnits - 400, 6);
-    currUnits -= currUnits - 400;
+    currUnits -= currUnits > 400 ? currUnits - 400 : 0;
     totalAmount += this.getAmount(currUnits - 200, 4.5);
-    currUnits -= currUnits - 200;
+    currUnits -= currUnits > 200 ? currUnits - 200 : 0;
     totalAmount += this.getAmount(currUnits - 100, 2.25);
     if (this.units > 500) {
       totalAmount += 225;
