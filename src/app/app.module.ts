@@ -4,10 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BillCalculatorComponent } from './components/bill-calculator/bill-calculator.component';
+import { BillCalculatorNewComponent } from './components/bill-calculator-new/bill-calculator-new.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BillCalculatorComponent,
+    BillCalculatorNewComponent
   ],
   imports: [
     BrowserModule,

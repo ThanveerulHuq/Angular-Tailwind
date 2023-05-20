@@ -1,33 +1,3 @@
-<header class="text-gray-600 body-font">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-      <img src="../assets/eco-house.svg" loading="lazy" class="rounded-sm w-10" alt="electricity">
-      <h1 class="ml-3 text-xl uppercase">tneb Home bill calculator</h1>
-    </a>
 
-
-  </div>
-</header>
-<div class="flex md:flex-row items-center justify-center mt-10 xs:flex-col">
-
-  <div
-    class="p-10 min-h-116 max-w-5xl w-full bg-purple-600 rounded-xl text-gray-100  transform duration-200 hover:-translate-y-1">
-    <div class="mt-5 font-light text-gray-100 leading-snug  min-h-33 flex flex-row justify-evenly">
-      <h1 class="font-bold text-4xl  mt-1">Units Consumed</h1>
-      <input
-        class="md:w-1/3 text-3xl bg-gray-100 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-        id="inline-full-name" type="text" [(ngModel)]="units">
-      <span (click)="onCalculate()"
-        class="p-3 text-2xl border-2 border-gray-200 rounded-md font-semibold hover:bg-gray-200 hover:border-gray-200 cursor-pointer hover:text-black ">Calculate
-        Bill Amount</span>
-    </div>
-    <div class="mt-20 flex flex-row justify-center" *ngIf="billAmount!=undefined">
-      <span class="text-xl mr-2 mt-2">YOUR BILL AMOUNT IS</span>
-      <span class="font-bold text-3xl">Rs. {{billAmount}}</span>
-    </div>
-  </div>
-
-
-</div>
 
 <router-outlet></router-outlet>

@@ -19,6 +19,8 @@
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
     "autoprefixer": "^10.2.5",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.10.2",
     "postcss": "^8.3.0",
     "rxjs": "~6.6.0",
     "tailwindcss": "^2.1.2",
