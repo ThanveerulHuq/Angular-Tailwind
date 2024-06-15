@@ -2,7 +2,7 @@
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
     <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
       <img src="../assets/eco-house.svg" loading="lazy" class="rounded-sm w-10" alt="electricity">
-      <h1 class="ml-3 text-xl uppercase">tneb Home bill calculator {{year}}</h1>
+      <h1 class="ml-3 text-xl uppercase">tneb Home bill calculator {{ year }}</h1>
     </a>
   </div>
 </header>
@@ -13,14 +13,14 @@
         <h1 class="fs-3 mt-lg-2 font-bold col-lg-3 col-10 text-center">Units Consumed</h1>
         <div class="col-lg-8 col-12">
           <div class="input-group input-group-lg d-none d-lg-flex">
-            <input type="number" class="form-control" [(ngModel)]="units" />
-            <button (click)="onCalculate()" class="btn btn-primary btn-lg">
+            <input type="number" class="form-control" [(ngModel)]="units" (keyup.enter)="onCalculateNew()" />
+            <button (click)="onCalculateNew()" class="btn btn-primary btn-lg">
               Calculate Bill Amount
             </button>
           </div>
           <div class="d-lg-none flex justify-center flex-column">
-            <input type="number" class="form-control fs-2 mt-2" [(ngModel)]="units" />
-            <button (click)="onCalculate()" class="btn btn-primary btn-lg mt-2">
+            <input type="number" class="form-control fs-2 mt-2" [(ngModel)]="units"/>
+            <button (click)="onCalculateNew()" class="btn btn-primary btn-lg mt-2">
               Calculate Bill Amount
             </button>
           </div>
@@ -29,14 +29,41 @@
     </div>
   </div>
 </div>
-<div class="container-fluid flex flex-row justify-center"  *ngIf="billAmount!=undefined">
+<div class="container-fluid flex flex-row justify-center" *ngIf="billAmount!=undefined">
   <div class="card col-10">
     <div class="card-body ">
-        <div class="flex flex-lg-row flex-column justify-center">
-          <span class="text-xl mr-2 mt-2 text-center">YOUR BILL AMOUNT IS</span>
-          <span class="font-bold text-3xl text-center">Rs. {{billAmount}}</span>
+      <div class="flex flex-lg-row flex-column justify-center">
+        <span class="text-xl mr-2 mt-2 text-center">YOUR BILL AMOUNT IS</span>
+        <span class="font-bold text-3xl text-center"> {{ billAmount | currency : "INR"}}</span>
       </div>
     </div>
   </div>
+</div>
+<div class="container-fluid flex flex-row justify-center" *ngIf="rangeAmounts.length > 0">
+  <div class="card col-10">
+    <div class="card-body ">
+      <table class="table table-striped table-bordered w-full">
+        <thead>
+        <tr class="bg-gray-200">
+          <th class="px-4 py-2">Range</th>
+          <th class="px-4 py-2">Cost per Unit</th>
+          <th class="px-4 py-2">Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let range of rangeAmounts">
+          <tr *ngIf="range.amount > 0" class="hover:bg-gray-100">
+            <td class="">{{ range.range }}</td>
+            <td class="text-right">{{ range.costPerUnit | currency : 'INR'}}</td>
+            <td class="text-right">{{ range.amount | currency : 'INR'}}</td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="container mx-auto my-8">
+
 </div>
 

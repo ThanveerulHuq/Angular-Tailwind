@@ -30,6 +30,7 @@ export class BillCalculatorComponent {
     if (this.units > 500) {
       totalAmount += 225;
     }
+    console.log(this.billAmount)
     this.billAmount = totalAmount.toFixed(2);
   }
 
