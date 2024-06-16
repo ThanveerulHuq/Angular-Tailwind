@@ -13,7 +13,7 @@
         <h1 class="fs-3 mt-lg-2 font-bold col-lg-3 col-10 text-center">Units Consumed</h1>
         <div class="col-lg-8 col-12">
           <div class="input-group input-group-lg d-none d-lg-flex">
-            <input type="number" class="form-control" [(ngModel)]="units" (keyup.enter)="onCalculateNew()" />
+            <input type="number" class="form-control" [(ngModel)]="units" (keyup.enter)="onCalculateNew()"/>
             <button (click)="onCalculateNew()" class="btn btn-primary btn-lg">
               Calculate Bill Amount
             </button>
@@ -34,7 +34,7 @@
     <div class="card-body ">
       <div class="flex flex-lg-row flex-column justify-center">
         <span class="text-xl mr-2 mt-2 text-center">YOUR BILL AMOUNT IS</span>
-        <span class="font-bold text-3xl text-center"> {{ billAmount | currency : "INR"}}</span>
+        <span class="font-bold text-3xl text-center"> {{ billAmount | currency : "INR" }}</span>
       </div>
     </div>
   </div>
@@ -54,8 +54,8 @@
         <ng-container *ngFor="let range of rangeAmounts">
           <tr *ngIf="range.amount > 0" class="hover:bg-gray-100">
             <td class="">{{ range.range }}</td>
-            <td class="text-right">{{ range.costPerUnit | currency : 'INR'}}</td>
-            <td class="text-right">{{ range.amount | currency : 'INR'}}</td>
+            <td class="text-right">{{ range.costPerUnit | currency : 'INR' }}</td>
+            <td class="text-right">{{ range.amount | currency : 'INR' }}</td>
           </tr>
         </ng-container>
         </tbody>
@@ -63,7 +63,5 @@
     </div>
   </div>
 </div>
-<div class="container mx-auto my-8">
 
-</div>
 

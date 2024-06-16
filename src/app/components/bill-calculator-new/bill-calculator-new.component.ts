@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {UNIT_PRICE} from "../../../constants/unitPrice";
+import {SupabaseService} from "../../services/supabase.service";
 
 export interface RangeAmount {
   range: string;
@@ -18,6 +19,9 @@ export class BillCalculatorNewComponent {
   billAmount!: string;
   year: number = new Date().getFullYear();
   rangeAmounts: RangeAmount[] = [];
+
+  constructor(private readonly supabaseService: SupabaseService) {
+  }
 
   onCalculateNew() {
     if (!this.units) return;
@@ -40,7 +44,7 @@ export class BillCalculatorNewComponent {
 
     totalAmount = this.units > 500 ? totalAmount + 225 : totalAmount;
     this.billAmount = totalAmount.toFixed(2);
-
+    this.supabaseService.saveBillAmount(this.units, totalAmount).then(console.log)
   }
 
   private getAmount(units: number, amount: number): number {
