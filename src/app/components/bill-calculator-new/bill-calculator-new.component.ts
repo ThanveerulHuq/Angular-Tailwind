@@ -44,7 +44,7 @@ export class BillCalculatorNewComponent {
 
     totalAmount = this.units > 500 ? totalAmount + 225 : totalAmount;
     this.billAmount = totalAmount.toFixed(2);
-    this.supabaseService.saveBillAmount(this.units, totalAmount).then(console.log)
+    this.supabaseService.saveBillAmount(this.units, totalAmount)
   }
 
   private getAmount(units: number, amount: number): number {

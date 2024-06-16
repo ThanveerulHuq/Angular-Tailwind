@@ -17,7 +17,7 @@ export class SupabaseService {
       .from('bill_amounts')
       .insert([
         {unit, amount}
-      ]);
+      ]).throwOnError()
   }
 
 }
